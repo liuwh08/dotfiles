@@ -149,7 +149,7 @@ set guioptions-=r
 set guioptions-=L
 set guioptions-=e
 
-" CodeSearch Unite
+" Unite
 " Start Insert
 let g:unite_enable_start_insert = 1
 let g:unite_enable_short_source_names = 1
@@ -189,7 +189,7 @@ function! s:unite_settings()
   nmap <buffer> <c-j> <Plug>(unite_loop_cursor_down)
   nmap <buffer> <c-k> <Plug>(unite_loop_cursor_up)
 
-  " refresh unite (also refreshes codesearch results)
+  " refresh unite (also refreshes results)
   nmap <buffer> <C-l> <Plug>(unite_redraw)
   imap <buffer> <C-l> <Plug>(unite_redraw)
 
@@ -202,16 +202,6 @@ function! s:unite_settings()
   nnoremap <silent><buffer><expr> <C-t> unite#do_action('tabswitch')
 
 endfunction
-
-function! SearchWithWord(expansion)
-  let word = expand(a:expansion)
-  execute(":Unite -input=" . word . " -buffer-name=codesearch codesearch")
-endfunction
-
-" Mapping for starting unite-codesearch with the cursor word
-nnoremap <silent> <leader>sw :call SearchWithWord("<cword>")<CR>
-nnoremap <silent> <leader>sW :call SearchWithWord("<cWORD>")<CR>
-nnoremap <silent> <leader>ss :<C-u>Unite -buffer-name=codesearch codesearch:!<CR>
 
 " vim-signify
 let g:signify_vcs_cmds = {'perforce':'DIFF=%d" -U0" citcdiff %f || [[ $? == 1 ]]'}
@@ -232,4 +222,3 @@ aug end
 " Vimrc shortcut
 nnoremap <leader>eve :tabe $MYVIMRC<cr>
 nnoremap <leader>sve :source $MYVIMRC<cr>
-
