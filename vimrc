@@ -108,10 +108,6 @@ let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
-" CodeSearch
-noremap <silent> <leader>cos :CorpWebCs<Space>
-noremap <silent> <leader>cof :CorpWebCsFile<CR>
-
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 
