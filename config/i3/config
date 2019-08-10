@@ -149,6 +149,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+default_border normal 7
+default_floating_border normal 7
+
 workspace 1 output HDMI-0
 workspace 2 output DVI-I-1
 

@@ -2,59 +2,46 @@ set nocompatible
 set nu
 set t_Co=256
 
-"source /usr/share/vim/google/google.vim
-"source /usr/share/vim/google/magic.vim
-"Glug youcompleteme-google
-"Glug codefmt-google auto_filetypes+=blazebuild
-"Glug piper plugin[mappings]='<leader>p'
-"Glug relatedfiles plugin[mappings]='<leader>r'
-"Glug g4
-"Glug corpweb
-"Glug blaze plugin[mappings]='<leader>b'
-"Glug grok
-"Glug autogen
-"Glug fileswitch
-"Glug outline-window
-"Glug blazedeps
-"Glug coverage
-"Glug coverage-google
-"Glug outline-window
 syntax on
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'google/vim-maktaba'
+
+Plugin 'L9'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ap/vim-css-color'
+Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'SirVer/ultisnips'
+Plugin 'google/vim-maktaba'
 Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-jp/cpp-vim'
+Plugin 'junegunn/vim-peekaboo'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mboughaba/i3config.vim'
+Plugin 'mhinz/vim-signify'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
+"Plugin 'prabirshrestha/async.vim'
+"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+"Plugin 'prabirshrestha/asyncomplete.vim'
+"Plugin 'prabirshrestha/vim-lsp'
+Plugin 'chip/vim-fat-finger'
+Plugin 'rhysd/vim-grammarous'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
-Plugin 'L9'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mhinz/vim-signify'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/unite.vim'
-"Plugin 'sso://user/dpyle/unite-codesearch.git'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-jp/cpp-vim'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'rhysd/vim-grammarous'
 
 call vundle#end()
 call glaive#Install()
@@ -238,20 +225,12 @@ let g:signify_line_highlight = 0
 
 hi SpellBad ctermbg=166
 
-" LSP
-au User lsp_setup call lsp#register_server({
-    \ 'name': 'CiderLSP',
-    \ 'cmd': {server_info->[
-    \   '/google/bin/releases/editor-devtools/ciderlsp',
-    \   '--tooltag=vim-lsp',
-    \   '--noforward_sync_responses',
-    \ ]},
-    \ 'whitelist': ['c', 'cpp', 'proto', 'textproto', 'go'],
-    \})
-nnoremap gd   :LspDefinition<CR>  " gd in Normal mode triggers gotodefinition
-nnoremap <F4> :LspReferences<CR>  " F4 in Normal mode shows all references
-
 autocmd FileType markdown setlocal spell
+
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.dotfiles/config/i3/config set filetype=i3config
+aug end
 
 
 " Vimrc shortcut
