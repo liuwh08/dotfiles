@@ -1,5 +1,4 @@
 set nocompatible
-set nu
 set t_Co=256
 
 syntax on
@@ -9,13 +8,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 
+"Plugin 'prabirshrestha/async.vim'
+"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+"Plugin 'prabirshrestha/asyncomplete.vim'
+"Plugin 'prabirshrestha/vim-lsp'
 Plugin 'L9'
+Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'andymass/vim-matchup'
 Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
+Plugin 'chip/vim-fat-finger'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'google/vim-codefmt'
@@ -24,14 +30,11 @@ Plugin 'google/vim-maktaba'
 Plugin 'honza/vim-snippets'
 Plugin 'junegunn/vim-peekaboo'
 Plugin 'kien/ctrlp.vim'
+Plugin 'markonm/traces.vim'
 Plugin 'mboughaba/i3config.vim'
 Plugin 'mhinz/vim-signify'
+Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-"Plugin 'prabirshrestha/async.vim'
-"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-"Plugin 'prabirshrestha/asyncomplete.vim'
-"Plugin 'prabirshrestha/vim-lsp'
-Plugin 'chip/vim-fat-finger'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -41,6 +44,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-jp/cpp-vim'
+Plugin 'wellle/targets.vim'
 Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
@@ -48,7 +52,6 @@ call glaive#Install()
 filetype plugin indent on
 
 " Basic Behavior
-set ignorecase
 set hidden
 set undolevels=1000
 set noerrorbells
@@ -59,8 +62,53 @@ set title
 set list
 set listchars=tab:»·,trail:·,extends:#,nbsp:· " Show me tabs and trailing
                                               "" whitespace set ruler
-let &colorcolumn = join(map(range(1,256), '"+" . v:val'), ",")
+" Tabs
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+set shiftround
+set autoindent
+set smartindent
+set nojoinspaces
 
+" Searches
+set ignorecase
+set smartcase
+set magic
+set incsearch
+set nowrapscan
+set gdefault
+
+" Command Completion
+set wildmenu
+set wildmode=longest:full,full
+
+" Allow backspace over everything
+set backspace=indent,eol,start
+
+" Easier to indent visual blocks.
+vnoremap > >gv
+vnoremap < <gv
+
+" Folding
+set foldmethod=syntax
+set foldnestmax=10
+set foldlevel=99
+
+" Split direction
+set splitright
+set splitbelow
+
+" Line Numbers
+set number
+set numberwidth=4
+set scrolloff=3
+set ruler
+
+" Color
+let &colorcolumn = join(map(range(1,256), '"+" . v:val'), ",")
 if &t_Co > 2 || has("gui_running")
   syntax enable
   set background=dark
@@ -68,15 +116,22 @@ if &t_Co > 2 || has("gui_running")
   colorscheme solarized
   set hlsearch
 endif
+syntax on
 
-" Tabs
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set autoindent
-set smartindent
+set diffopt=filter,vertical
+if has('nvim-0.3.2') || has('patch-8.1.0360')
+    set diffopt+=internal,algorithm:histogram,indent-heuristic
+endif
+
+" delimitMate
+let delimitMate_expand_cr = 2
+let delimitMate_expand_inside_quotes = 1
+let delimitMate_jump_expansion = 0
+let delimitMate_excluded_regions = 0
+
+" Peekaboo
+let g:peekaboo_window = 'vertical botright 30new'
+let g:peekaboo_delay = 750
 
 " YCM configs
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -100,8 +155,6 @@ let g:ycm_always_populate_location_list = 0
 let g:ycm_open_loclist_on_ycm_diags = 0
 nnoremap <leader>jd :YcmCompleter GoToImprecise<CR>
 nnoremap <leader>je :YcmCompleter GoToDeclaration<CR>
-
-set foldmethod=syntax
 
 " For confilic on TAB key of YoucompleteMe and Ultisnips
 let g:UltiSnipsExpandTrigger = "<c-j>"
@@ -204,8 +257,7 @@ function! s:unite_settings()
 endfunction
 
 " vim-signify
-let g:signify_vcs_cmds = {'perforce':'DIFF=%d" -U0" citcdiff %f || [[ $? == 1 ]]'}
-let g:signify_vcs_list = ['perforce']
+let g:signify_vcs_list = ['git']
 let g:signify_realtime = 0
 let g:signify_line_highlight = 0
 
