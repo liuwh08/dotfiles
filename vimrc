@@ -118,10 +118,10 @@ if &t_Co > 2 || has("gui_running")
 endif
 syntax on
 
-set diffopt=filter,vertical
-if has('nvim-0.3.2') || has('patch-8.1.0360')
-    set diffopt+=internal,algorithm:histogram,indent-heuristic
-endif
+"set diffopt=filter,vertical
+"if has('nvim-0.3.2') || has('patch-8.1.0360')
+    "set diffopt+=internal,algorithm:histogram,indent-heuristic
+"endif
 
 " delimitMate
 let delimitMate_expand_cr = 2
@@ -163,6 +163,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_checkers = ['python3']
 
 " CtrlP
 let g:ctrp_map = '<c-p>'
@@ -260,6 +261,12 @@ endfunction
 let g:signify_vcs_list = ['git']
 let g:signify_realtime = 0
 let g:signify_line_highlight = 0
+
+" Avoid piling up fugitive buffers
+augroup fugitive
+  autocmd!
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END
 
 hi SpellBad ctermbg=166
 
