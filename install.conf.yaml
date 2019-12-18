@@ -4,9 +4,16 @@
     ~/.profile: profile
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
+    ~/.bash_profile: bash_profile
     ~/.vimrc: vimrc
     ~/.config/i3:
         path: config/i3/
         create: true
-
-
+    ~/.vim:
+        path: vim
+        create: true
+    ~/.tmux.conf: tmux.conf
+    ~/.xinitrc: xinitrc
+    ~/.xprofile: xprofile
+    ~/.xsessionrc: xsessionrc
+    ~/.Xresources: Xresources

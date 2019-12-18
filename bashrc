@@ -28,7 +28,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -122,3 +122,8 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
+export PATH=~/.local/bin:$PATH # add vitasdk tool to $PATH
+
+if [ -f ~/.bash_local.sh ]; then
+    . ~/.bash_local.sh
+fi

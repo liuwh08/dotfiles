@@ -1,5 +1,6 @@
 set nocompatible
 set t_Co=256
+set encoding=utf-8
 
 syntax on
 
@@ -187,6 +188,7 @@ nnoremap <F5> :GundoToggle<CR>
 
 " Airline
 let g:airline_theme = 'dark'
+let g:airline_powerline_fonts = 1
 
 " Tabs
 nmap <silent> <leader>n :tabnew<CR>
