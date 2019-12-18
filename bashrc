@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export EDITOR=vi
+export EDITOR=vim
 export TERM=screen-256color-bce
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
