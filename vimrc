@@ -13,11 +13,11 @@ call vundle#begin()
 "Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 "Plugin 'prabirshrestha/asyncomplete.vim'
 "Plugin 'prabirshrestha/vim-lsp'
+Plugin 'bogado/file-line'
 Plugin 'L9'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'SirVer/ultisnips'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'andymass/vim-matchup'
 Plugin 'ap/vim-css-color'
@@ -25,9 +25,6 @@ Plugin 'bling/vim-airline'
 Plugin 'chip/vim-fat-finger'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-glaive'
-Plugin 'google/vim-maktaba'
 Plugin 'honza/vim-snippets'
 Plugin 'junegunn/vim-peekaboo'
 Plugin 'kien/ctrlp.vim'
@@ -39,17 +36,35 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-jp/cpp-vim'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'wellle/targets.vim'
-Plugin 'ycm-core/YouCompleteMe'
+
+" At work, or not:
+if filereadable(expand('~/.at_google'))
+  " Google-only
+  source ~/.vimrc_local
+else
+  " Non-Google only
+  "Plugin 'Valloric/YouCompleteMe'
+  Plugin 'ycm-core/YouCompleteMe'
+  Plugin 'SirVer/ultisnips'
+  Plugin 'scrooloose/syntastic'
+  Plugin 'google/vim-glaive'
+  Plugin 'google/vim-codefmt'
+  Plugin 'google/vim-maktaba'
+
+
+
+
+  call glaive#Install()
+endif
 
 call vundle#end()
-call glaive#Install()
 filetype plugin indent on
 
 " Basic Behavior
@@ -189,6 +204,8 @@ nnoremap <F5> :GundoToggle<CR>
 " Airline
 let g:airline_theme = 'dark'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
+let g:airline#extensions#branch#use_vcscommand = 1
 
 " Tabs
 nmap <silent> <leader>n :tabnew<CR>
@@ -259,6 +276,13 @@ function! s:unite_settings()
 
 endfunction
 
+
+" At work, or not:
+if filereadable(expand('~/.at_google'))
+  " Google-only
+  source ~/.vimrc_local_cmd
+endif
+
 " vim-signify
 let g:signify_vcs_list = ['git']
 let g:signify_realtime = 0
@@ -283,3 +307,10 @@ aug end
 " Vimrc shortcut
 nnoremap <leader>eve :tabe $MYVIMRC<cr>
 nnoremap <leader>sve :source $MYVIMRC<cr>
+
+" Easier to indent visual blocks.
+vnoremap > >gv
+vnoremap < <gv
+
+" Autoformatter
+autocmd FileType go AutoFormatBuffer gofmt

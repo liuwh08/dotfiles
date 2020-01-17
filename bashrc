@@ -3,10 +3,9 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[ -z "$PS1" ] && return
+
+set -o vi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -14,6 +13,8 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT=""
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=100000
@@ -104,6 +105,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+if [ -f ~/bash/env.sh ]; then
+    . ~/bash/env.sh
+fi
+#if [ -f ~/bash/prompt.sh ]; then
+    #. ~/bash/prompt.sh
+#fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -115,6 +122,13 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 
 if [ "$PS1" ]; then
     complete -cf sudo

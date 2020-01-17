@@ -1,12 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
-export PATH=~/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH="/google/src/files/head/depot/google3/third_party/javascript/node_modules/typescript/stable/bin:$PATH"
 export EDITOR=vim
 export TERM=screen-256color-bce
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/liuwh/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -109,4 +110,5 @@ source $ZSH/oh-my-zsh.sh
 #
 # Vi mode
 bindkey -v
+bindkey "^?" backward-delete-char
 export KEYTIMEOUT=1
