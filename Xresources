@@ -32,10 +32,7 @@ urxvt.saveLines: 1000000
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
 !URxvt*font:                 xft:Hack:pixelsize=13:minspace=False
 URxvt*letterSpace: 0
-URxvt*font:                 xft:Droid Sans Mono Slashed for Powerline:pixelsize=14:antialias=true:hinting=true:autohint=true
-URxvt*boldFont:             xft:Droid Sans Mono Slashed for Powerline:pixelsize=14:antialias=true:hinting=true:autohint=true
-URxvt*italicFont:           xft:Droid Sans Mono Slashed for Powerline:pixelsize=14:antialias=true:autohint=true:hinting=true
-URxvt*bolditalicFont:       xft:Droid Sans Mono slashed for Powerline:pixelsize=14:antialias=true:autohint=true:hinting=true
+URxvt*font:                 xft:Hack:pixelsize=14:antialias=true:hinting=true:autohint=true
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt

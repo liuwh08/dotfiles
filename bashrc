@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ "$PS1" ]; then
+    complete -cf sudo
+fi
+
 export EDITOR=vim
 export TERM=screen-256color-bce
 export GTK_IM_MODULE=ibus
@@ -123,7 +127,7 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
-export PATH=~/.local/bin:$PATH # add vitasdk tool to $PATH
+export PATH=~/.local/bin:$PATH
 
 if [ -f ~/.bash_local.sh ]; then
     . ~/.bash_local.sh

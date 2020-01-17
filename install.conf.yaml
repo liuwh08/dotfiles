@@ -9,6 +9,12 @@
     ~/.config/i3:
         path: config/i3/
         create: true
+    ~/.config/i3status:
+        path: config/i3status/
+        create: true
+    ~/.config/kitty:
+        path: config/kitty/
+        create: true
     ~/.vim:
         path: vim
         create: true
@@ -17,3 +23,4 @@
     ~/.xprofile: xprofile
     ~/.xsessionrc: xsessionrc
     ~/.Xresources: Xresources
+    ~/.zshrc: zshrc
