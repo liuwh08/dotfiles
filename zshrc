@@ -112,3 +112,5 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 bindkey "^?" backward-delete-char
 export KEYTIMEOUT=1
+
+source /etc/bash_completion.d/g4d

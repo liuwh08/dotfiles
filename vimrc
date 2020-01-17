@@ -204,6 +204,7 @@ nnoremap <F5> :GundoToggle<CR>
 " Airline
 let g:airline_theme = 'dark'
 let g:airline_powerline_fonts = 1
+let g:airline_section_b = ''
 let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
 let g:airline#extensions#branch#use_vcscommand = 1
 
