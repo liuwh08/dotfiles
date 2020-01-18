@@ -168,7 +168,7 @@ let g:ycm_filetype_blacklist = {
 " manually using :YcmDiags.
 let g:ycm_always_populate_location_list = 0
 let g:ycm_open_loclist_on_ycm_diags = 0
-nnoremap <leader>jd :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>je :YcmCompleter GoToDeclaration<CR>
 
 " For confilic on TAB key of YoucompleteMe and Ultisnips
