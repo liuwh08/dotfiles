@@ -15,9 +15,9 @@
     ~/.config/kitty:
         path: config/kitty/
         create: true
-    ~/.vim:
-        path: vim
-        create: true
+    #~/.vim:
+        #path: vim
+        #create: true
     ~/.tmux.conf: tmux.conf
     ~/.xinitrc: xinitrc
     ~/.xprofile: xprofile
