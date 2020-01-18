@@ -20,6 +20,9 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4,standout"
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
+
 # History
 HISTSIZE=100000
 SAVEHIST=100000
@@ -59,7 +62,7 @@ bindkey "^R" history-incremental-search-backward
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -85,7 +88,14 @@ bindkey "^R" history-incremental-search-backward
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  mercurial
+  docker
+  dnf
+  zsh-autosuggestions
+  z
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -121,3 +131,21 @@ bindkey "^?" backward-delete-char
 export KEYTIMEOUT=1
 
 source /etc/bash_completion.d/g4d
+
+autoload -U compinit promptinit
+compinit
+promptinit; prompt gentoo
+zstyle ':completion::complete:*' use-cache 1
+
+d='dirs -v | head -10'
+1='cd -'
+2='cd -2'
+3='cd -3'
+4='cd -4'
+5='cd -5'
+6='cd -6'
+7='cd -7'
+8='cd -8'
+9='cd -9'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

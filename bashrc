@@ -146,3 +146,5 @@ export PATH=~/.local/bin:$PATH
 if [ -f ~/.bash_local.sh ]; then
     . ~/.bash_local.sh
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

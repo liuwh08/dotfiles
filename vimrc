@@ -27,7 +27,7 @@ Plugin 'christoomey/vim-sort-motion'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'junegunn/vim-peekaboo'
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 Plugin 'markonm/traces.vim'
 Plugin 'mboughaba/i3config.vim'
 Plugin 'mhinz/vim-signify'
@@ -43,6 +43,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-jp/cpp-vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'wellle/targets.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " At work, or not:
 if filereadable(expand('~/.at_google'))
@@ -315,3 +316,6 @@ vnoremap < <gv
 
 " Autoformatter
 autocmd FileType go AutoFormatBuffer gofmt
+
+" FZF
+nnoremap <leader>f :FZF<cr>
