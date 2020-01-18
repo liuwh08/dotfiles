@@ -60,8 +60,6 @@ else
 
 
 
-
-  call glaive#Install()
 endif
 
 call vundle#end()
@@ -80,9 +78,9 @@ set listchars=tab:»·,trail:·,extends:#,nbsp:· " Show me tabs and trailing
                                               "" whitespace set ruler
 " Tabs
 set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set smarttab
 set shiftround
 set autoindent
@@ -282,6 +280,8 @@ endfunction
 if filereadable(expand('~/.at_google'))
   " Google-only
   source ~/.vimrc_local_cmd
+else
+  call glaive#Install()
 endif
 
 " vim-signify
