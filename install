@@ -19,6 +19,10 @@ if [ ! -d ~/.oh-my-zsh ]; then
   echo "Installing OhMyZsh"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel9k ]; then
+  echo "Installing PowerLevel9k"
+  git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+fi
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
   echo "Installing zsh-autosuggestions"
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
