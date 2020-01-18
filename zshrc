@@ -3,7 +3,7 @@
 export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH="/google/src/files/head/depot/google3/third_party/javascript/node_modules/typescript/stable/bin:$PATH"
-export EDITOR=vim
+export EDITOR="mvim -v"
 export TERM=screen-256color-bce
 
 # Path to your oh-my-zsh installation.
@@ -130,11 +130,15 @@ bindkey -v
 bindkey "^?" backward-delete-char
 export KEYTIMEOUT=1
 
-source /etc/bash_completion.d/g4d
-
 autoload -U compinit promptinit
 compinit
-promptinit; prompt gentoo
+if command emerge > /dev/null; then
+  # Gentoo config
+  echo "Gentoo auto complete."
+  promptinit; prompt gentoo
+else
+  promptinit;
+fi
 zstyle ':completion::complete:*' use-cache 1
 
 d='dirs -v | head -10'
@@ -149,3 +153,11 @@ d='dirs -v | head -10'
 9='cd -9'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ `uname` == "Darwin" ]]; then
+  # OS X only config
+  alias vim="mvim -v"
+fi
+if [[ -f /etc/bash_completion.d/g4d ]]; then
+  source /etc/bash_completion.d/g4d
+fi
