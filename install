@@ -21,7 +21,7 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
   echo "Installing zsh-autosuggestions"
-  git clone https://github.com/zsh-users/zsh-autosuggestions -~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 fi
 if [ ! -x "$(command -v fzf)"]; then
   echo "Please install fzf"
