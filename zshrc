@@ -132,7 +132,7 @@ export KEYTIMEOUT=1
 
 autoload -U compinit promptinit
 compinit
-if command emerge > /dev/null; then
+if command emerge > /dev/null 2>&1; then
   # Gentoo config
   echo "Gentoo auto complete."
   promptinit; prompt gentoo
