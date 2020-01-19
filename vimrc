@@ -51,8 +51,8 @@ if filereadable(expand('~/.at_google'))
   source ~/.vimrc_local
 else
   " Non-Google only
-  "Plugin 'Valloric/YouCompleteMe'
-  Plugin 'ycm-core/YouCompleteMe'
+  Plugin 'Valloric/YouCompleteMe'
+  "Plugin 'ycm-core/YouCompleteMe'
   Plugin 'SirVer/ultisnips'
   Plugin 'scrooloose/syntastic'
   Plugin 'google/vim-glaive'
@@ -172,6 +172,7 @@ nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>je :YcmCompleter GoToDeclaration<CR>
 
 " For confilic on TAB key of YoucompleteMe and Ultisnips
+"au! UltiSnips_AutoTrigger
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
