@@ -18,7 +18,8 @@
     #~/.vim:
         #path: vim
         #create: true
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: .tmux/.tmux.conf
+    ~/.tmux.conf.local: .tmux.conf.local
     ~/.xinitrc: xinitrc
     ~/.xprofile: xprofile
     ~/.xsessionrc: xsessionrc
