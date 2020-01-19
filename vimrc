@@ -46,9 +46,9 @@ Plugin 'wellle/targets.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " At work, or not:
-if filereadable(expand('~/.at_google'))
+if filereadable(expand('~/.vimrc_google_plugin'))
   " Google-only
-  source ~/.vimrc_local
+  source ~/.vimrc_google_plugin
 else
   " Non-Google only
   Plugin 'Valloric/YouCompleteMe'
@@ -65,6 +65,10 @@ endif
 
 call vundle#end()
 filetype plugin indent on
+
+if filereadable(expand('~/.vimrc_local'))
+  source ~/.vimrc_local
+endif
 
 " Basic Behavior
 set hidden
@@ -173,6 +177,7 @@ nnoremap <leader>je :YcmCompleter GoToDeclaration<CR>
 
 " For confilic on TAB key of YoucompleteMe and Ultisnips
 "au! UltiSnips_AutoTrigger
+let g:UltiSnipsUsePythonVersion=3
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
@@ -279,9 +284,9 @@ endfunction
 
 
 " At work, or not:
-if filereadable(expand('~/.at_google'))
+if filereadable(expand('~/.vimrc_google_cmd'))
   " Google-only
-  source ~/.vimrc_local_cmd
+  source ~/.vimrc_google_cmd
 else
   call glaive#Install()
 endif
