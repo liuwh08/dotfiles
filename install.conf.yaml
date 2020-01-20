@@ -15,6 +15,9 @@
     ~/.config/kitty:
         path: config/kitty/
         create: true
+    ~/.config/polybar:
+        path: config/polybar/
+        create: true
     #~/.vim:
         #path: vim
         #create: true
