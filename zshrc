@@ -3,7 +3,7 @@
 export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH="/google/src/files/head/depot/google3/third_party/javascript/node_modules/typescript/stable/bin:$PATH"
-export EDITOR="mvim -v"
+export EDITOR="vim"
 export TERM=screen-256color-bce
 
 # Path to your oh-my-zsh installation.
@@ -157,6 +157,7 @@ d='dirs -v | head -10'
 if [[ `uname` == "Darwin" ]]; then
   # OS X only config
   alias vim="mvim -v"
+  export EDITOR="mvim -v"
 fi
 if [[ -f /etc/bash_completion.d/g4d ]]; then
   source /etc/bash_completion.d/g4d
