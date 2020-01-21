@@ -18,6 +18,9 @@
     ~/.config/polybar:
         path: config/polybar/
         create: true
+    ~/.config/mpd:
+        path: config/mpd/
+        create: true
     #~/.vim:
         #path: vim
         #create: true
