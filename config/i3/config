@@ -168,6 +168,7 @@ client.background       #ffffff
 #exec --no-startup-id ibus-daemon --xim -d -r
 exec --no-startup-id fcitx -d
 exec --no-startup-id "xrandr --output HDMI-0 --left-of DVI-D-0"
+exec --no-startup-id "xrandr --output DP-5 --left-of DP-4"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always start-pulseaudio-x11
 exec /usr/share/goobuntu-indicator/goobuntu_indicator.py
