@@ -2,9 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/Library/Python/3.7/bin:$PATH
 export PATH="/google/src/files/head/depot/google3/third_party/javascript/node_modules/typescript/stable/bin:$PATH"
 export EDITOR="vim"
 export TERM=screen-256color-bce
+export GOPATH=$HOME/go
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

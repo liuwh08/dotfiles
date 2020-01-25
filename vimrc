@@ -43,6 +43,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-jp/cpp-vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'wellle/targets.vim'
+Plugin 'fatih/vim-go'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " At work, or not:
@@ -129,13 +130,12 @@ set ruler
 " Color
 let &colorcolumn = join(map(range(1,256), '"+" . v:val'), ",")
 if &t_Co > 2 || has("gui_running")
-  syntax enable
+  syntax on
   set background=dark
   let g:solarized_termtrans=1
   colorscheme solarized
   set hlsearch
 endif
-syntax on
 
 "set diffopt=filter,vertical
 "if has('nvim-0.3.2') || has('patch-8.1.0360')
@@ -185,6 +185,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_python_checkers = ['python3']
+let g:syntastic_yaml_checkers = ['yamllint']
 
 " CtrlP
 let g:ctrp_map = '<c-p>'
@@ -322,6 +323,13 @@ vnoremap < <gv
 
 " Autoformatter
 autocmd FileType go AutoFormatBuffer gofmt
+
+" Go-Vim
+let g:go_highlight_functions = 0
+let g:go_highlight_function_parameters = 0
+let g:go_highlight_fields = 0
+let g:go_highlight_function_calls = 0
+let g:go_highlight_types = 0
 
 " FZF
 nnoremap <leader>f :FZF<cr>
