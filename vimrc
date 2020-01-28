@@ -44,6 +44,7 @@ Plugin 'vim-jp/cpp-vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'wellle/targets.vim'
 Plugin 'fatih/vim-go'
+Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " At work, or not:
@@ -204,7 +205,7 @@ nmap <silent> <leader>h :NERDTreeToggle<CR>
 nnoremap <F6> :NERDTreeToggle<CR>
 
 " Gundo
-nnoremap <silent> <leader>g :GundoToggle<CR>
+nnoremap <silent> <leader>gu :GundoToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 
 " Airline
@@ -325,11 +326,29 @@ vnoremap < <gv
 autocmd FileType go AutoFormatBuffer gofmt
 
 " Go-Vim
-let g:go_highlight_functions = 0
-let g:go_highlight_function_parameters = 0
-let g:go_highlight_fields = 0
-let g:go_highlight_function_calls = 0
-let g:go_highlight_types = 0
+let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:go_auto_sameids = 1
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
 
 " FZF
 nnoremap <leader>f :FZF<cr>
