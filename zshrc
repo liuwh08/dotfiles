@@ -100,6 +100,7 @@ plugins=(
   kubectl
   zsh-autosuggestions
   z
+  go
 )
 
 source $ZSH/oh-my-zsh.sh

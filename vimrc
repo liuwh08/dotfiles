@@ -173,13 +173,15 @@ let g:ycm_filetype_blacklist = {
 " manually using :YcmDiags.
 let g:ycm_always_populate_location_list = 0
 let g:ycm_open_loclist_on_ycm_diags = 0
+let g:ycm_key_list_select_completion   = ['<C-j>', '<Tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<S-Tab>', '<Up>']
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>je :YcmCompleter GoToDeclaration<CR>
 
 " For confilic on TAB key of YoucompleteMe and Ultisnips
 "au! UltiSnips_AutoTrigger
 let g:UltiSnipsUsePythonVersion=3
-let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsExpandTrigger = "<c-e>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
@@ -323,7 +325,9 @@ vnoremap > >gv
 vnoremap < <gv
 
 " Autoformatter
-autocmd FileType go AutoFormatBuffer gofmt
+" autocmd FileType go AutoFormatBuffer gofmt
+" Bugs in vim 8.1, fixed in vim 8.2
+autocmd FileType go set softtabstop=0
 
 " Go-Vim
 let g:go_highlight_types = 1
@@ -335,9 +339,9 @@ let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
-let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
+let g:go_fmt_autosave = 0
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -347,7 +351,6 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
-
 autocmd FileType go nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
 
 " FZF
