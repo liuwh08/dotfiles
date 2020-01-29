@@ -37,6 +37,7 @@ Plugin 'rhysd/vim-grammarous'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
@@ -99,7 +100,7 @@ set ignorecase
 set smartcase
 set magic
 set incsearch
-set nowrapscan
+set wrapscan
 set gdefault
 
 " Command Completion
@@ -341,7 +342,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
