@@ -3,6 +3,14 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+# List of plugins
+set -g @tpm_plugins '          \
+  tmux-plugins/tpm             \
+  tmux-plugins/tmux-sensible   \
+  tmux-plugins/tmux-continuum  \
+  tmux-plugins/tmux-resurrect  \
+  samoshkin/tmux-plugin-sysstat  \
+'
 
 # -- navigation ----------------------------------------------------------------
 
@@ -299,3 +307,6 @@ bind C-a send-prefix
 
 # move status line to top
 #set -g status-position top
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'

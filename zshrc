@@ -101,6 +101,7 @@ plugins=(
   zsh-autosuggestions
   z
   go
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -159,6 +160,8 @@ d='dirs -v | head -10'
 9='cd -9'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 
 if [[ `uname` == "Darwin" ]]; then
   # OS X only config
@@ -174,3 +177,14 @@ if [ -f '/Users/liuwh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/liuwh/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/liuwh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/liuwh/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/usr/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/share/google-cloud-sdk/completion.zsh.inc'; fi
+#if command kubectl > /dev/null 2>&1; then
+  #source <(kubectl completion zsh)
+#fi
+if [[ "$TERM" != emacs ]] && (( ${+terminfo} )) 2>/dev/null; then
+  (( ${+terminfo[cuu1]}  )) && bindkey -M viins "$terminfo[cuu1]" up-line-or-history
+  (( ${+terminfo[kcuu1]} )) && bindkey -M viins "$terminfo[kcuu1]" up-line-or-history
+  (( ${+terminfo[kcud1]} )) && bindkey -M viins "$terminfo[kcud1]" down-line-or-history
+  [[ "${terminfo[kcuu1]:-}" == $'\EO'* ]] && bindkey -M viins "${terminfo[kcuu1]/O/[}" up-line-or-history
+  [[ "${terminfo[kcud1]:-}" == $'\EO'* ]] && bindkey -M viins "${terminfo[kcud1]/O/[}" down-line-or-history
+fi

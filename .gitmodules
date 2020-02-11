@@ -4,3 +4,9 @@
 [submodule ".tmux"]
 	path = .tmux
 	url = https://github.com/gpakosz/.tmux
+[submodule "tmux_plugin/plugins/tpm/tpm"]
+	path = tmux_plugin/plugins/tpm/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "tmux_plugin/plugins/tpm"]
+	path = tmux_plugin/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
