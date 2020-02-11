@@ -21,9 +21,6 @@
     ~/.config/mpd:
         path: config/mpd/
         create: true
-    ~/.tmux:
-        path: .tmux/
-        create: true
     #~/.vim:
         #path: vim
         #create: true

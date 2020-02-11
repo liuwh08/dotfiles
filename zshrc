@@ -101,6 +101,7 @@ plugins=(
   zsh-autosuggestions
   z
   go
+  tmux
   kubectl
 )
 

@@ -12,6 +12,11 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 git submodule update --init --recursive ./.tmux/
+if [ -z "$(ls -A ~/.tmux/plugins/tpm)" ]; then
+  # Install TPM
+  mkdir -p ~/.tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
   echo "Installing Vundle"
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
