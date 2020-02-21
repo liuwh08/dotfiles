@@ -23,6 +23,7 @@ Plugin 'andymass/vim-matchup'
 Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
 Plugin 'chip/vim-fat-finger'
+Plugin 'SirVer/ultisnips'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'honza/vim-snippets'
@@ -58,7 +59,6 @@ else
   " Non-Google only
   Plugin 'Valloric/YouCompleteMe'
   "Plugin 'ycm-core/YouCompleteMe'
-  Plugin 'SirVer/ultisnips'
   Plugin 'scrooloose/syntastic'
   Plugin 'google/vim-glaive'
   Plugin 'google/vim-codefmt'
@@ -355,6 +355,8 @@ function! s:build_go_files()
   endif
 endfunction
 autocmd FileType go nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
+autocmd Filetype go setlocal ts=4
+autocmd Filetype python setlocal expandtab ts=4 softtabstop=4
 
 " FZF
 nnoremap <leader>f :FZF<cr>
