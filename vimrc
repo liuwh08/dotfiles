@@ -63,9 +63,6 @@ else
   Plugin 'google/vim-glaive'
   Plugin 'google/vim-codefmt'
   Plugin 'google/vim-maktaba'
-
-
-
 endif
 
 call vundle#end()
@@ -178,6 +175,8 @@ let g:ycm_always_populate_location_list = 0
 let g:ycm_open_loclist_on_ycm_diags = 0
 let g:ycm_key_list_select_completion   = ['<C-j>', '<Tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<S-Tab>', '<Up>']
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>je :YcmCompleter GoToDeclaration<CR>
 
