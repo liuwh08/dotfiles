@@ -44,11 +44,13 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-obsession'
 Plugin 'vim-jp/cpp-vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'wellle/targets.vim'
 Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'christianrondeau/vim-base64'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " At work, or not:

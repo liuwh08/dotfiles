@@ -177,12 +177,6 @@ fi
 if [[ -f /etc/bash_completion.d/g4d ]]; then
   source /etc/bash_completion.d/g4d
 fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/liuwh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/liuwh/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/liuwh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/liuwh/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -f '/usr/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/share/google-cloud-sdk/completion.zsh.inc'; fi
 #if command kubectl > /dev/null 2>&1; then
   #source <(kubectl completion zsh)
@@ -194,3 +188,9 @@ if [[ "$TERM" != emacs ]] && (( ${+terminfo} )) 2>/dev/null; then
   [[ "${terminfo[kcuu1]:-}" == $'\EO'* ]] && bindkey -M viins "${terminfo[kcuu1]/O/[}" up-line-or-history
   [[ "${terminfo[kcud1]:-}" == $'\EO'* ]] && bindkey -M viins "${terminfo[kcud1]/O/[}" down-line-or-history
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/liuwh/google-cloud-sdk/path.zsh.inc' ]; then . '/home/liuwh/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/liuwh/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/liuwh/google-cloud-sdk/completion.zsh.inc'; fi

@@ -13,6 +13,8 @@ set -g @tpm_plugins '          \
   samoshkin/tmux-plugin-sysstat  \
 '
 
+set -g @resurrect-strategy-vim 'session'
+
 set -g @net_speed_interfaces "eno1"
 
 # -- navigation ----------------------------------------------------------------
