@@ -21,6 +21,9 @@
     ~/.config/mpd:
         path: config/mpd/
         create: true
+    ~/.config/yabai:
+        path: config/yabai/
+        create: true
     #~/.vim:
         #path: vim
         #create: true
