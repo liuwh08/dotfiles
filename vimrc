@@ -51,6 +51,7 @@ Plugin 'wellle/targets.vim'
 Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'christianrondeau/vim-base64'
+Plugin 'grailbio/bazel-compilation-database'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " At work, or not:
@@ -345,7 +346,11 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
-let g:go_fmt_autosave = 1
+let g:go_fmt_autosave = 0
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_command = "golangci-lint"
+let g:go_list_type = 'quickfix'
+let g:go_jump_to_error = 0
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')

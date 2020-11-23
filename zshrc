@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/go/bin:$PATH
-export PATH=$HOME/Library/Python/3.7/bin:$PATH
-export PATH="/google/src/files/head/depot/google3/third_party/javascript/node_modules/typescript/stable/bin:$PATH"
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/Library/Python/3.7/bin
+export PATH=$PATH:/usr/local/google/home/liuwh/bin
+export PATH="$PATH:/google/src/files/head/depot/google3/third_party/javascript/node_modules/typescript/stable/bin"
 export EDITOR="vim"
 export TERM=screen-256color-bce
 export GOPATH=$HOME/go
@@ -105,7 +105,7 @@ plugins=(
   kubectl
   zsh-autosuggestions
   z
-  go
+  golang
   tmux
   kubectl
 )
