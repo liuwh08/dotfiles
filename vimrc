@@ -52,6 +52,7 @@ Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'christianrondeau/vim-base64'
 Plugin 'grailbio/bazel-compilation-database'
+Plugin 'ojroques/vim-oscyank'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " At work, or not:

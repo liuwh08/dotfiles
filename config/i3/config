@@ -154,8 +154,8 @@ bindsym $mod+r mode "resize"
 default_border normal 7
 default_floating_border normal 7
 
-workspace 1 output HDMI-0
-workspace 2 output DVI-D-0
+workspace 1 output DP-0
+workspace 2 output DP-2
 
 client.focused          #4c7889 #11502E #ffffff #2e9ef4   #1BF254
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
@@ -168,7 +168,7 @@ client.background       #ffffff
 #exec --no-startup-id ibus-daemon --xim -d -r
 exec --no-startup-id fcitx -d
 exec --no-startup-id "xrandr --output HDMI-0 --left-of DVI-D-0"
-exec --no-startup-id "xrandr --output DP-5 --left-of DP-4"
+exec --no-startup-id "xrandr --output DP-0 --left-of DP-2"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always start-pulseaudio-x11
 exec /usr/share/goobuntu-indicator/goobuntu_indicator.py

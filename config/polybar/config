@@ -29,7 +29,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/bar1]
-monitor = ${env:MONITOR:DP-5}
+monitor = ${env:MONITOR:DP-0}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -78,7 +78,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/bar2]
-monitor = ${env:MONITOR:DP-4}
+monitor = ${env:MONITOR:DP-2}
 width = 100%
 height = 27
 ;offset-x = 1%
