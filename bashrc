@@ -135,7 +135,6 @@ if [ "$PS1" ]; then
 fi
 
 export EDITOR=vim
-export TERM=screen-256color-bce
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus

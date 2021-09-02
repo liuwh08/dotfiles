@@ -33,4 +33,5 @@
     ~/.xprofile: xprofile
     ~/.xsessionrc: xsessionrc
     ~/.Xresources: Xresources
-    ~/.zshrc: zshrc
+    ~/.vimrc: vimrc
+    ~/.p10k.zsh: .p10k.zsh

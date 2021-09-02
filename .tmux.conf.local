@@ -16,6 +16,8 @@ set -g @tpm_plugins '          \
 set -g @resurrect-strategy-vim 'session'
 
 set -g @net_speed_interfaces "eno1"
+set -ga terminal-overrides ",xterm-256color:Tc"
+set -g default-terminal "tmux-256color"
 
 # -- navigation ----------------------------------------------------------------
 

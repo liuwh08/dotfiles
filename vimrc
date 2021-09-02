@@ -19,9 +19,13 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
+Plugin 'morhetz/gruvbox'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'andymass/vim-matchup'
 Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chip/vim-fat-finger'
 Plugin 'SirVer/ultisnips'
 Plugin 'christoomey/vim-sort-motion'
@@ -37,7 +41,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim'
+Plugin 'mbbill/undotree'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
@@ -53,6 +57,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'christianrondeau/vim-base64'
 Plugin 'grailbio/bazel-compilation-database'
 Plugin 'ojroques/vim-oscyank'
+Plugin 'sainnhe/everforest'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " At work, or not:
@@ -133,12 +138,19 @@ set scrolloff=3
 set ruler
 
 " Color
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 let &colorcolumn = join(map(range(1,256), '"+" . v:val'), ",")
 if &t_Co > 2 || has("gui_running")
   syntax on
   set background=dark
   let g:solarized_termtrans=1
-  colorscheme solarized
+  "colorscheme solarized8
+  "colorscheme everforest
+  colorscheme gruvbox
   set hlsearch
 endif
 
@@ -212,14 +224,15 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 nmap <silent> <leader>h :NERDTreeToggle<CR>
 nnoremap <F6> :NERDTreeToggle<CR>
 
-" Gundo
-nnoremap <silent> <leader>gu :GundoToggle<CR>
-nnoremap <F5> :GundoToggle<CR>
+" Undo
+nnoremap <silent> <leader>gu ::UndotreeToggle<CR>
+nnoremap <F5> ::UndotreeToggle<CR>
 
 " Airline
 let g:airline_theme = 'dark'
 let g:airline_powerline_fonts = 1
-let g:airline_section_b = ''
+"let g:airline_section_b = ''
+let g:airline_theme= 'solarized'
 let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
 let g:airline#extensions#branch#use_vcscommand = 1
 
@@ -367,3 +380,6 @@ autocmd Filetype python setlocal expandtab ts=4 softtabstop=4
 
 " FZF
 nnoremap <leader>f :FZF<cr>
+
+" vim-oscyank
+vnoremap <leader>c :OSCYank<CR>
