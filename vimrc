@@ -20,6 +20,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'lifepillar/vim-solarized8'
+Plugin 'rakr/vim-one'
 Plugin 'morhetz/gruvbox'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'andymass/vim-matchup'
@@ -37,6 +38,7 @@ Plugin 'markonm/traces.vim'
 Plugin 'mboughaba/i3config.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-grammarous'
 Plugin 'scrooloose/nerdcommenter'
@@ -68,7 +70,6 @@ else
   " Non-Google only
   Plugin 'Valloric/YouCompleteMe'
   "Plugin 'ycm-core/YouCompleteMe'
-  Plugin 'scrooloose/syntastic'
   Plugin 'google/vim-glaive'
   Plugin 'google/vim-codefmt'
   Plugin 'google/vim-maktaba'
@@ -148,9 +149,13 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set background=dark
   let g:solarized_termtrans=1
+  let g:one_allow_italics = 1
   "colorscheme solarized8
+  colorscheme one
+  "colorscheme solarized
   "colorscheme everforest
-  colorscheme gruvbox
+  "colorscheme gruvbox
+  highlight SpellBad guifg=#eeeeee guibg=#ff0000
   set hlsearch
 endif
 
@@ -232,7 +237,7 @@ nnoremap <F5> ::UndotreeToggle<CR>
 let g:airline_theme = 'dark'
 let g:airline_powerline_fonts = 1
 "let g:airline_section_b = ''
-let g:airline_theme= 'solarized'
+let g:airline_theme= 'one'
 let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
 let g:airline#extensions#branch#use_vcscommand = 1
 
@@ -358,6 +363,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_diagnostic_warnings = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
 let g:go_fmt_autosave = 0
