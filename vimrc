@@ -60,7 +60,8 @@ Plugin 'christianrondeau/vim-base64'
 Plugin 'grailbio/bazel-compilation-database'
 Plugin 'ojroques/vim-oscyank'
 Plugin 'sainnhe/everforest'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
 
 " At work, or not:
 if filereadable(expand('~/.vimrc_google_plugin'))
@@ -226,7 +227,8 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 
 " NERDTree
-nmap <silent> <leader>h :NERDTreeToggle<CR>
+nmap <silent> <leader>d :NERDTreeToggle %<CR>
+nmap <silent> <leader>h :NERDTreeToggleVCS <CR>
 nnoremap <F6> :NERDTreeToggle<CR>
 
 " Undo
@@ -236,7 +238,7 @@ nnoremap <F5> ::UndotreeToggle<CR>
 " Airline
 let g:airline_theme = 'dark'
 let g:airline_powerline_fonts = 1
-"let g:airline_section_b = ''
+let g:airline_section_b = ''
 let g:airline_theme= 'one'
 let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
 let g:airline#extensions#branch#use_vcscommand = 1
@@ -367,9 +369,11 @@ let g:go_highlight_diagnostic_errors = 1
 let g:go_highlight_diagnostic_warnings = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 let g:go_metalinter_autosave = 0
 let g:go_metalinter_command = "golangci-lint"
+let g:go_metalinter_enabled = ["govet" ,"errcheck","staticcheck","unused","gosimple","structcheck","varcheck","ineffassign","deadcode","typecheck","asciicheck","depguard","gofmt","goimports","importas","nolintlint","unconvert","unparam"]
+let g:go_metalinter_autosave_enabled = g:go_metalinter_enabled
 let g:go_list_type = 'quickfix'
 let g:go_jump_to_error = 0
 " run :GoBuild or :GoTestCompile based on the go file
@@ -387,6 +391,8 @@ autocmd Filetype python setlocal expandtab ts=4 softtabstop=4
 
 " FZF
 nnoremap <leader>f :FZF<cr>
+nnoremap <leader>rg :Rg<cr>
+nnoremap <leader>ag :Ag<cr>
 
 " vim-oscyank
 vnoremap <leader>c :OSCYank<CR>

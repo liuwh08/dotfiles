@@ -146,6 +146,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Vi mode
+alias go=~/go/bin/go
+alias goimports=~/go/bin/goimports
 bindkey -v
 bindkey "^?" backward-delete-char
 export KEYTIMEOUT=1
