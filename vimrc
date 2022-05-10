@@ -386,13 +386,16 @@ function! s:build_go_files()
   endif
 endfunction
 autocmd FileType go nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nnoremap <leader>gr :GoRename<CR>
 autocmd Filetype go setlocal ts=4
 autocmd Filetype python setlocal expandtab ts=4 softtabstop=4
 
 " FZF
 nnoremap <leader>f :FZF<cr>
 nnoremap <leader>rg :Rg<cr>
+nnoremap <leader>rgw :Rg <C-R><C-W><cr>
 nnoremap <leader>ag :Ag<cr>
+nnoremap <leader>agw :Ag <C-R><C-W><cr>
 
 " vim-oscyank
 vnoremap <leader>c :OSCYank<CR>
