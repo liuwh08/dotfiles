@@ -6,6 +6,9 @@
     ~/.bash_logout: bash_logout
     ~/.bash_profile: bash_profile
     ~/.vimrc: vimrc
+    ~/.ssh/config: ssh/config
+    ~/.gitconfig: .gitconfig
+    ~/.gitignore: .gitignore
     ~/.config/i3:
         path: config/i3/
         create: true

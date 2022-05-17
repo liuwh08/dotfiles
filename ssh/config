@@ -1,0 +1,12 @@
+Match host 21.*
+  ProxyCommand none
+#Match host !localhost.corp.google.com,*.corp.google.com
+Match host *
+  ProxyCommand corp-ssh-helper %h %p
+Match host 10.128.*,10.254.*,10.251.*,*.anthos
+  GSSAPIAuthentication no
+  GSSAPIKeyExchange no
+  Protocol 2
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  ProxyCommand None
