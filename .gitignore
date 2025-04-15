@@ -1,8 +1,1 @@
-.ignore
-liuwh_backup_restore.sh
-liuwh_test_installation.sh
-liuwh_test_installation_non_root.sh
-liuwh_test_restore.sh
-liuwh_test_skip_build.sh
-liuwh_test_upgrade.sh
-*.sh
+liuwh_test*.sh

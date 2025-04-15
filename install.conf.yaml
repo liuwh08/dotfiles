@@ -27,6 +27,9 @@
     ~/.config/yabai:
         path: config/yabai/
         create: true
+    ~/.config/nvim:
+        path: config/neovim/
+        create: true
     #~/.vim:
         #path: vim
         #create: true

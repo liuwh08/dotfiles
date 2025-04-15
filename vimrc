@@ -58,7 +58,7 @@ Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'christianrondeau/vim-base64'
 Plugin 'grailbio/bazel-compilation-database'
-Plugin 'ojroques/vim-oscyank'
+Plugin 'ojroques/vim-oscyank', {'branch': 'main'}
 Plugin 'sainnhe/everforest'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
@@ -227,6 +227,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 
 " NERDTree
+let g:NERDTreeMinimalMenu=1
 nmap <silent> <leader>d :NERDTreeToggle %<CR>
 nmap <silent> <leader>h :NERDTreeToggleVCS <CR>
 nnoremap <F6> :NERDTreeToggle<CR>
@@ -238,7 +239,7 @@ nnoremap <F5> ::UndotreeToggle<CR>
 " Airline
 let g:airline_theme = 'dark'
 let g:airline_powerline_fonts = 1
-let g:airline_section_b = ''
+"let g:airline_section_b = ''
 let g:airline_theme= 'one'
 let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
 let g:airline#extensions#branch#use_vcscommand = 1
@@ -331,6 +332,9 @@ augroup fugitive
   autocmd!
   autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
+nnoremap <leader>gp :!git push origin HEAD:refs/for/$(git rev-parse --abbrev-ref --symbolic-full-name @{u} <bar> cut -d/ -f 2) -o nokeycheck<cr>
+nnoremap <leader>gitp :Git pull<cr>
+nnoremap <leader>gitb :Git branch<cr>
 
 hi SpellBad ctermbg=166
 
@@ -386,6 +390,7 @@ function! s:build_go_files()
   endif
 endfunction
 autocmd FileType go nmap <leader>gb :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r :GoReferrers<cr>
 autocmd FileType go nnoremap <leader>gr :GoRename<CR>
 autocmd Filetype go setlocal ts=4
 autocmd Filetype python setlocal expandtab ts=4 softtabstop=4
@@ -398,4 +403,6 @@ nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>agw :Ag <C-R><C-W><cr>
 
 " vim-oscyank
-vnoremap <leader>c :OSCYank<CR>
+vmap <leader>c <Plug>OSCYankVisual
+let g:oscyank_max_length = 1000000
+let g:oscyank_osc52      = "\x1b]52;c;%s\x07"  "

@@ -8,12 +8,13 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/Library/Python/3.7/bin
 export PATH=$PATH:/usr/local/google/home/liuwh/bin
 export PATH="$PATH:/google/src/files/head/depot/google3/third_party/javascript/node_modules/typescript/stable/bin"
 export EDITOR="vim"
-export GOPATH=$HOME/go
+export GOPATH=~/go
+export GOOGLE_APPLICATION_CREDENTIALS=~/bmctl/liuwh-testing-sa.json
 export COLORTERM=truecolor
 
 # Path to your oh-my-zsh installation.
@@ -146,8 +147,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Vi mode
-alias go=~/go/bin/go
-alias goimports=~/go/bin/goimports
+#alias goimports=~/go/bin/goimports
 bindkey -v
 bindkey "^?" backward-delete-char
 export KEYTIMEOUT=1
@@ -206,3 +206,9 @@ if [ -f '/home/liuwh/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/liuwh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+
+[[ -s "/usr/local/google/home/liuwh/.gvm/scripts/gvm" ]] && source "/usr/local/google/home/liuwh/.gvm/scripts/gvm"
