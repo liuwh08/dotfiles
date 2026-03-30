@@ -12,10 +12,12 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/Library/Python/3.7/bin
 export PATH=$PATH:/usr/local/google/home/liuwh/bin
 export PATH="$PATH:/google/src/files/head/depot/google3/third_party/javascript/node_modules/typescript/stable/bin"
-export EDITOR="vim"
+export PATH="/home/liuwh/.npm-global/bin:$PATH"
+export EDITOR="nvim"
 export GOPATH=~/go
-export GOOGLE_APPLICATION_CREDENTIALS=~/bmctl/liuwh-testing-sa.json
+#export GOOGLE_APPLICATION_CREDENTIALS=~/bmctl/liuwh-testing-sa.json
 export COLORTERM=truecolor
+export CUDACXX=/usr/local/cuda-13.2/bin/nvcc
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -212,3 +214,4 @@ if [ -f '/home/liuwh/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/liuwh
 
 
 [[ -s "/usr/local/google/home/liuwh/.gvm/scripts/gvm" ]] && source "/usr/local/google/home/liuwh/.gvm/scripts/gvm"
+export PATH="$HOME/.npm-global/bin:$PATH"

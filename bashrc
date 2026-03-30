@@ -153,3 +153,4 @@ fi
 
 
 [[ -s "/usr/local/google/home/liuwh/.gvm/scripts/gvm" ]] && source "/usr/local/google/home/liuwh/.gvm/scripts/gvm"
+export PATH="$HOME/.npm-global/bin:$PATH"

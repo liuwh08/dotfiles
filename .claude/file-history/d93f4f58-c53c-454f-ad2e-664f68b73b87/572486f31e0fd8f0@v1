@@ -1,0 +1,44 @@
+- clean: ['~']
+
+- link:
+    ~/.profile: profile
+    ~/.bashrc: bashrc
+    ~/.bash_logout: bash_logout
+    ~/.bash_profile: bash_profile
+    ~/.vimrc: vimrc
+    ~/.ssh/config: ssh/config
+    ~/.gitconfig: .gitconfig
+    ~/.gitignore: .gitignore
+    ~/.config/i3:
+        path: config/i3/
+        create: true
+    ~/.config/i3status:
+        path: config/i3status/
+        create: true
+    ~/.config/kitty:
+        path: config/kitty/
+        create: true
+    ~/.config/polybar:
+        path: config/polybar/
+        create: true
+    ~/.config/mpd:
+        path: config/mpd/
+        create: true
+    ~/.config/yabai:
+        path: config/yabai/
+        create: true
+    ~/.config/nvim:
+        path: config/neovim/
+        create: true
+    #~/.vim:
+        #path: vim
+        #create: true
+    ~/.tmux.conf: .tmux/.tmux.conf
+    ~/.tmux.conf.local: .tmux.conf.local
+    ~/.xinitrc: xinitrc
+    ~/.xprofile: xprofile
+    ~/.xsessionrc: xsessionrc
+    ~/.Xresources: Xresources
+    ~/.vimrc: vimrc
+    ~/.zshrc: zshrc
+    ~/.p10k.zsh: .p10k.zsh

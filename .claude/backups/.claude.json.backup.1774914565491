@@ -1,0 +1,145 @@
+{
+  "numStartups": 3,
+  "installMethod": "native",
+  "autoUpdates": false,
+  "tipsHistory": {
+    "new-user-warmup": 1,
+    "plan-mode-for-complex-tasks": 1,
+    "terminal-setup": 1,
+    "memory-command": 1,
+    "theme-command": 2,
+    "status-line": 2,
+    "prompt-queue": 2,
+    "enter-to-steer-in-relatime": 2,
+    "todo-list": 2,
+    "install-github-app": 2,
+    "install-slack-app": 2,
+    "double-esc-code-restore": 2,
+    "continue": 2,
+    "shift-tab": 2,
+    "image-paste": 2,
+    "web-app": 2,
+    "mobile-app": 2
+  },
+  "firstStartTime": "2026-03-30T22:25:16.900Z",
+  "opusProMigrationComplete": true,
+  "sonnet1m45MigrationComplete": true,
+  "userID": "e6dc6f3ede5d3412c25f14d244f9154d1ab0ccccf3b1092d3e2edb6968285884",
+  "changelogLastFetched": 1774909702539,
+  "autoUpdatesProtectedForNative": true,
+  "hasCompletedOnboarding": true,
+  "lastOnboardingVersion": "2.1.87",
+  "projects": {
+    "/home/liuwh/llama.cpp": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "convert_hf_to_gguf.py",
+        "ggml-vulkan.cpp",
+        "llama-model.cpp",
+        "index.html.gz",
+        "test-backend-ops.cpp"
+      ],
+      "exampleFilesGeneratedAt": 1774909713473,
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 0.6529764,
+      "lastAPIDuration": 268467,
+      "lastAPIDurationWithoutRetries": 268451,
+      "lastToolDuration": 7753,
+      "lastDuration": 4283505,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 197468,
+      "lastTotalOutputTokens": 1902,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 114688,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 1.32,
+      "lastFpsLow1Pct": 367.91,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 232,
+          "outputTokens": 190,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001182
+        },
+        "Qwen3.5": {
+          "inputTokens": 197236,
+          "outputTokens": 1712,
+          "cacheReadInputTokens": 114688,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.6517944
+        }
+      },
+      "lastSessionId": "94b86212-e826-4a7b-aeb8-1fdffe7bdb16",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 5638,
+        "frame_duration_ms_min": 0.057846999960020185,
+        "frame_duration_ms_max": 11.055023000000006,
+        "frame_duration_ms_avg": 0.5167019661207479,
+        "frame_duration_ms_p50": 0.43783349997829646,
+        "frame_duration_ms_p95": 0.8981412499211728,
+        "frame_duration_ms_p99": 3.0482487099687465,
+        "pre_tool_hook_duration_ms_count": 5,
+        "pre_tool_hook_duration_ms_min": 0,
+        "pre_tool_hook_duration_ms_max": 1,
+        "pre_tool_hook_duration_ms_avg": 0.4,
+        "pre_tool_hook_duration_ms_p50": 0,
+        "pre_tool_hook_duration_ms_p95": 1,
+        "pre_tool_hook_duration_ms_p99": 1,
+        "hook_duration_ms_count": 2,
+        "hook_duration_ms_min": 0,
+        "hook_duration_ms_max": 0,
+        "hook_duration_ms_avg": 0,
+        "hook_duration_ms_p50": 0,
+        "hook_duration_ms_p95": 0,
+        "hook_duration_ms_p99": 0
+      }
+    },
+    "/home/liuwh/dotfiles": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "vimrc",
+        "config",
+        "net-speed.sh",
+        "zshrc",
+        ".tmux.conf.local"
+      ],
+      "exampleFilesGeneratedAt": 1774914189704
+    }
+  },
+  "opus1mMergeNoticeSeenCount": 3,
+  "lastReleaseNotesSeen": "2.1.87",
+  "githubRepoPaths": {
+    "ggml-org/llama.cpp": [
+      "/home/liuwh/llama.cpp"
+    ],
+    "liuwh08/dotfiles": [
+      "/home/liuwh/dotfiles"
+    ]
+  },
+  "officialMarketplaceAutoInstallAttempted": true,
+  "officialMarketplaceAutoInstalled": true,
+  "metricsStatusCache": {
+    "enabled": false,
+    "timestamp": 1774910158630
+  }
+}
