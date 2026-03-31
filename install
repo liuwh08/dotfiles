@@ -12,6 +12,7 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 git submodule update --init --recursive ./.tmux/
+mkdir -p ~/.claude
 if [ -z "$(ls -A ~/.tmux/plugins/tpm)" ]; then
   # Install TPM
   mkdir -p ~/.tmux/plugins

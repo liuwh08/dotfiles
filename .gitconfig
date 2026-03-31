@@ -16,8 +16,8 @@
 [alias]
 	review = "!f() { git push origin HEAD:refs/for/${1:-main}; }; f"
 [core]
-	excludesFile = /usr/local/google/home/liuwh/.gitignore
+	#excludesFile = /usr/local/google/home/liuwh/.gitignore
 [commit]
-	template = /usr/local/google/home/liuwh/.gitmessage
+	#template = /usr/local/google/home/liuwh/.gitmessage
 [advice]
 	detachedHead = false
