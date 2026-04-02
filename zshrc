@@ -215,3 +215,6 @@ if [ -f '/home/liuwh/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/liuwh
 
 [[ -s "/usr/local/google/home/liuwh/.gvm/scripts/gvm" ]] && source "/usr/local/google/home/liuwh/.gvm/scripts/gvm"
 export PATH="$HOME/.npm-global/bin:$PATH"
+
+# opencode
+export PATH=/home/liuwh/.opencode/bin:$PATH
