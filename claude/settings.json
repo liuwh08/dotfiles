@@ -1,16 +1,21 @@
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "http://192.168.2.252:8080",
-    "ANTHROPIC_AUTH_TOKEN": "",
-    "ANTHROPIC_MODEL": "Qwen3.5",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
   },
-  "model": "Qwen3-Coder-Next",
+  "model": "opus",
   "enabledPlugins": {
     "gitlab@claude-plugins-official": true,
     "github@claude-plugins-official": true
   },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
   "syntaxHighlightingDisabled": true,
-  "hasCompletedOnboarding": true,
-  "theme": "dark"
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "hasCompletedOnboarding": true
 }

@@ -748,7 +748,20 @@ require("lazy").setup({
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
+				ts_ls = {
+					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = vim.fn.stdpath("data")
+									.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+								languages = { "vue" },
+							},
+						},
+					},
+				},
+				vue_ls = {},
 				--
 
 				lua_ls = {
@@ -801,6 +814,32 @@ require("lazy").setup({
 					end,
 				},
 			})
+			-- IMPORTANT: Add this AFTER your mason-lspconfig.setup() and capabilities setup
+			-- This ensures ts_ls attaches to .vue files (required for Neovim 0.11+)
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "vue",
+				callback = function(args)
+					local root_dir = vim.fs.root(args.buf, { "package.json", "tsconfig.json", "jsconfig.json" })
+
+					-- Copy init_options from servers table
+					local init_options = vim.deepcopy(servers.ts_ls.init_options)
+
+					-- Ensure plugin location is set
+					local mason_path = vim.fn.stdpath("data")
+						.. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+					if vim.fn.isdirectory(mason_path) == 1 then
+						init_options.plugins[1].location = mason_path
+					end
+
+					vim.lsp.start({
+						name = "ts_ls",
+						cmd = { "typescript-language-server", "--stdio" },
+						root_dir = root_dir,
+						init_options = init_options,
+						capabilities = capabilities, -- Should be defined earlier in your config
+					})
+				end,
+			})
 		end,
 	},
 
@@ -824,7 +863,7 @@ require("lazy").setup({
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
 				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = { c = true, cpp = true, typescript = true, vue = true }
 				if disable_filetypes[vim.bo[bufnr].filetype] then
 					return nil
 				else
@@ -836,6 +875,8 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				json = { "jq" },
+				jsonc = { "jq" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -1160,10 +1201,10 @@ require("lazy").setup({
 				return require("opencode").operator("@this ") .. "_"
 			end, { desc = "Add line to opencode", expr = true })
 
-			vim.keymap.set("n", "<S-C-k>", function()
+			vim.keymap.set("n", "<S-C-u>", function()
 				require("opencode").command("session.half.page.up")
 			end, { desc = "Scroll opencode up" })
-			vim.keymap.set("n", "<S-C-j>", function()
+			vim.keymap.set("n", "<S-C-d>", function()
 				require("opencode").command("session.half.page.down")
 			end, { desc = "Scroll opencode down" })
 

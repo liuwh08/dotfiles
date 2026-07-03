@@ -21,3 +21,5 @@
 	#template = /usr/local/google/home/liuwh/.gitmessage
 [advice]
 	detachedHead = false
+[url "https://liuwh08@gitlab.com/"]
+	insteadOf = https://gitlab.com/
